@@ -1,0 +1,19 @@
+//CLEARERP  JOB ,'MVS TOOLBOX',CLASS=A,MSGCLASS=H                       00000100
+//*                                                                     00000200
+//* *************************************************                   00000300
+//*  CLEARS ERP (Error Recovery Program) LOG FILE                       00000400
+//*    The log file is SYS1.LOGREC in MVSRES volume                     00000501
+//*      and contains records about hardware,                           00000601
+//*      software and system errors and failures                        00000701
+//*                                                                     00000801
+//*  Possible result message: IFC001I                                   00000901
+//*  IFC001I - Perform an IPL to use the new data set.                  00001001
+//*            It is not possible for the system to                     00001101
+//*            switch from the logrec data set it was                   00001201
+//*            it was using at the last IPL to a                        00001301
+//*            different logrec data set.                               00001401
+//* *************************************************                   00001500
+//*                                                                     00001600
+//CLEAR    EXEC PGM=IFCDIP00                                            00001700
+//SERERDS    DD DSN=SYS1.LOGREC,DISP=OLD,VOL=SER=MVSRES,UNIT=3350       00001800
+//                                                                      00001900
